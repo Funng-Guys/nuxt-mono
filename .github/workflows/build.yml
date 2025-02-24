@@ -9,6 +9,8 @@ on:
     branches:
       - staging
       - main
+    paths-ignore:
+      - 'deploy/**'
   workflow_dispatch:
 
 env:
