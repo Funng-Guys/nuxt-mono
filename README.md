@@ -1,75 +1,19 @@
-# Nuxt UI v3 Starter
+# Fullstack test application
+This project showcases and test the ability to automatically build, publish and deploy a modern webapp to a kubernetes cluster with minimal, human interaction.
 
-Look at [Nuxt docs](https://nuxt.com/docs/getting-started/introduction) and [Nuxt UI docs](https://ui3.nuxt.dev) to learn more.
+## Structure
+* `.github` - Github Actions, using our self-hosted runner.
+* `deploy` - Contains k8s deployment files, this is monitored by the k8s gitops integration.
+* `docker` - Contains dockerfiles/containerfiles.
+* `webapp` - Contains the source code, a nuxt 3 app using bun.
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+## Workflow
+Develop locally using the regular tooling in webapp.
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
+bun install
 bun run dev
 ```
 
-## Production
+Commit your changes to dev for general development. However, when things are getting ready for production either start a PR from dev to staging or prod. Alternatively push to those branches. This will automatically start the github action.
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+When the github action finishes a new image will be posted on this repo. The GitOps integration in our k8s cluster, configured under `deploy` will automatically fetch the latest image and do a rolling release.
