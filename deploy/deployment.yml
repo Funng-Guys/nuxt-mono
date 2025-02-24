@@ -4,16 +4,16 @@ kind: Deployment
 metadata:
   name: nuxt-mono-deployment
   labels:
-    app: nginx
+    app: nuxt-mono
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nuxt
+      app: nuxt-mono-app
   template:
     metadata:
       labels:
-        app: nuxt
+        app: nuxt-mono-app
     spec:
       containers:
       - name: nuxt-mono
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nuxt-mono
+  name: nuxt-mono-service
 spec:
   selector:
-    app.kubernetes.io/name: nuxt-mono-deployment
+    app: nuxt-mono-app
   ports:
     - protocol: TCP
       port: 80
