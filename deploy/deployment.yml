@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nuxt-mono
-        image: ghcr.io/funng-guys/nuxt-mono:sha256-9f0a8caf768cacf2a5e12527f99d36a9983d4597a80d240c16da28d6ebb3eb9d
+        image: ghcr.io/funng-guys/nuxt-mono:main
         ports:
         - containerPort: 3000
 
@@ -28,7 +28,7 @@ metadata:
   name: nuxt-mono
 spec:
   selector:
-    app.kubernetes.io/name: nuxt-mono
+    app.kubernetes.io/name: nuxt-mono-deployment
   ports:
     - protocol: TCP
       port: 80
