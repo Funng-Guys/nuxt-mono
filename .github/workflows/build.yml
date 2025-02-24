@@ -50,6 +50,12 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+
 
       - name: Build and push Docker image
         id: push
@@ -57,7 +63,7 @@ jobs:
         with:
           context: ./webapp
           push: true
-          tags: ${{ steps.meta.outputs.tags }}, ${{ github.base_ref }}-latest            
+          tags: ${{ steps.meta.outputs.tags }}        
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Generate artifact attestation
