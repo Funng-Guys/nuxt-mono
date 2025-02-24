@@ -43,6 +43,6 @@ metadata:
 spec:
   defaultBackend:
     service:
-      name: nuxt-mono
+      name: nuxt-mono-service
       port:
         number: 80
