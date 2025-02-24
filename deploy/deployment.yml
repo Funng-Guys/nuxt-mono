@@ -9,11 +9,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nuxt-mono-app
+      app: nuxt-mono
   template:
     metadata:
       labels:
-        app: nuxt-mono-app
+        app: nuxt-mono
     spec:
       containers:
       - name: nuxt-mono
@@ -28,7 +28,7 @@ metadata:
   name: nuxt-mono-service
 spec:
   selector:
-    app: nuxt-mono-app
+    app: nuxt-mono
   ports:
     - protocol: TCP
       port: 80
