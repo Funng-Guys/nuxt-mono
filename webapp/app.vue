@@ -28,5 +28,7 @@ const toggleMic = () => {
       <source src="https://cdn.discordapp.com/attachments/344232026322370560/1343334579410440222/ek70pspg1oke1.mp4?ex=67bce551&is=67bb93d1&hm=e227498c13d337ebbc623e54c8e21ea9df159d2e93ee159ba1488d8574febc4e&" type="video/mp4" />
     </video>
     </UCard>
+
+    <p>Test code to se if this autoupdates.</p>
   </UContainer>
 </template>
