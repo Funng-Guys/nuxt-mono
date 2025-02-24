@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 USER node
 
 # Copy all the application files to the working directory
-COPY webapp/.output .
+COPY ./webapp/.output .
 
 # Expose port 3000 for the application
 EXPOSE 3000
