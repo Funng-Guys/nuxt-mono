@@ -29,6 +29,6 @@ const toggleMic = () => {
     </video>
     </UCard>
 
-    <p>Test code to se if this autoupdates.</p>
+    <p>Test code to se if this autoupdates. Oooga booga</p>
   </UContainer>
 </template>
