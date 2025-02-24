@@ -29,15 +29,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
 
-      # Change workdir
-      - name: Change workdir
-        run: cd webapp
-
       # run any `bun` or `bunx` command
       - name: Building application for Node
         run: bun install && bun run build
-
-      - run: cd ..
+        working-directory: ./webapp
 
       # Build the Docker image
       - name: Log in to the Container registry
